@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /macros/latex/contrib/newfile
+# catalog-date 2009-09-03 13:00:14 +0200
+# catalog-license lppl
+# catalog-version 1.0c
 Name:		texlive-newfile
 Version:	1.0c
 Release:	1
@@ -45,6 +51,7 @@ Some facilities of the verbatim package are also mapped.
 #- source
 %doc %{_texmfdistdir}/source/latex/newfile/newfile.dtx
 %doc %{_texmfdistdir}/source/latex/newfile/newfile.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -55,3 +62,5 @@ Some facilities of the verbatim package are also mapped.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
