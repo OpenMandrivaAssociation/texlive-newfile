@@ -6,7 +6,7 @@
 # catalog-version 1.0c
 Name:		texlive-newfile
 Version:	1.0c
-Release:	2
+Release:	3
 Summary:	User level management of LaTeX input and output
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/newfile
