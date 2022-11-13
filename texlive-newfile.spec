@@ -1,19 +1,13 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/newfile
-# catalog-date 2009-09-03 13:00:14 +0200
-# catalog-license lppl
-# catalog-version 1.0c
 Name:		texlive-newfile
-Version:	1.0c
-Release:	11
+Version:	15878
+Release:	1
 Summary:	User level management of LaTeX input and output
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/newfile
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/newfile.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/newfile.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/newfile.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/newfile.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/newfile.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/newfile.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -26,12 +20,12 @@ mapped to various of the LaTeX input and output mechanisms.
 Some facilities of the verbatim package are also mapped.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -44,24 +38,11 @@ Some facilities of the verbatim package are also mapped.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.0c-2
-+ Revision: 754319
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.0c-1
-+ Revision: 719110
-- texlive-newfile
-- texlive-newfile
-- texlive-newfile
-- texlive-newfile
-
